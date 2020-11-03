@@ -1,0 +1,1 @@
+--publish 0.0.0.0:53:53/tcp --publish 0.0.0.0:53:53/udp --publish 0.0.0.0:9153:9153/tcp

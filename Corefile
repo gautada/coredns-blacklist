@@ -1,0 +1,27 @@
+.:53 {
+        blacklist
+        errors
+        health {
+          lameduck 5s
+        }
+        ready
+        log . {
+          class all
+        }
+#        kubernetes cluster.local in-addr.arpa ip6.arpa {
+#           pods insecure
+#           fallthrough in-addr.arpa ip6.arpa
+#       }
+        prometheus :9153
+        hosts /etc/coredns/hosts {
+          no_reverse
+          fallthrough
+        }
+        forward . tls://1.1.1.1 tls://1.0.0.1 {
+          tls_servername tls.cloudflare-dns.com
+        }
+        cache 30
+        loop
+        reload 60s
+        loadbalance
+    }
